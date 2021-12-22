@@ -22,3 +22,40 @@ tuple:
 let tup: (i32, f64, u8) = (500, 6.4, 1);
 let (x, y, z) = tup; // destructuring
 let x = tup.0;
+
+module system:
+Package: Cargo.toml, 0-1 library
+Crate: binary or library, crate root (of module tree), src/bin
+Module: tree
+Path
+
+blanket implementations:
+impl<T: Display> ToString for T {
+    // --snip--
+}
+use:
+let s = 3.to_string();
+
+lifetime elision rules
+input lifetimes
+output lifetimes
+1) each parameter that is a reference gets its own life- time parameter.
+2) if there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters.
+3) the lifetime of self is assigned to all output lifetime parameters.
+
+test control:
+$ cargo test -- --test-threads=1 --nocapture --ignored
+
+test attributes:
+#[cfg(test)] // not included on cargo build
+#[test]
+#[ignore]
+#[should_panic(expected = "prefix")]
+
+integration test:
+tests/integration_test.rs
+tests/common/mod.rs
+    Files in subdirectories of the tests directory don’t get compiled as separate crates or have sections in the test output.
+
+project:
+cargo new rt
