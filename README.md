@@ -36,7 +36,7 @@ impl<T: Display> ToString for T {
 use:
 let s = 3.to_string();
 
-lifetime elision rules
+lifetime elision rules:
 input lifetimes
 output lifetimes
 1) each parameter that is a reference gets its own life- time parameter.
@@ -59,3 +59,12 @@ tests/common/mod.rs
 
 project:
 cargo new rt
+
+closure:
+All closures implement at least one of the traits: Fn (read env only ), FnMut (mutate env), or FnOnce (move).
+When a closure captures a value from its environment, it uses memory to store the values for use in the closure body.
+memoization/lazy evaluation
+
+iterator:
+into_iter: returns owned values
+iter_mut: iterate over mutable references
