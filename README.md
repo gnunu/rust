@@ -68,3 +68,11 @@ memoization/lazy evaluation
 iterator:
 into_iter: returns owned values
 iter_mut: iterate over mutable references
+
+Cargo.toml:
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+
