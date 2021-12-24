@@ -76,3 +76,34 @@ opt-level = 0
 [profile.release]
 opt-level = 3
 
+[package]
+name = "pkg-name"
+version = "0.1.0"
+authors = ["your name<you@example.com>"]
+description = "somehting"
+license = "MIT"
+edition = "2021"
+
+$ cargo publish
+
+publish:
+$ cargo publish
+$ cargo yank --vers 1.0.1
+$ cargo yank --vers 1.0.1 --undo
+
+workspace:
+[workspace]
+members = [
+    "main",
+    "lib01",
+    "lib02",
+]
+
+[dependencies]
+lib01 = { path = "../lib01" }
+lib02 = { path = "../lib02" }
+
+$ cargo run -p main
+$ cargo test -p lib01
+
+$ cargo install ripgrep
